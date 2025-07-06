@@ -1,0 +1,14 @@
+.container-inicio {
+  width: 100%;
+  flex-grow: 1;
+  overflow-x: hidden;
+  display: flex; /* Convierte body en un flex container */
+  flex-direction: column;
+  min-height: 100vh; /* Asegurar altura mínima */
+  /* Eliminar height: 100vh aquí también si estaba, el contenido ya le dará altura */
+}
+
+/* Asegurar que el footer esté siempre al final */
+.container-inicio {
+  justify-content: space-between;
+}

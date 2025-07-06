@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Ana Pérez",
+    "position": "Directora General",
+    "phone": "123-456-7890",
+    "email": "ana.perez@example.com",
+    "office": "Oficina 101",
+    "committee": "Comité Ejecutivo",
+    "photo": "/ruta/a/foto-ana.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Luis Gómez",
+    "position": "Gerente de Proyectos",
+    "phone": "234-567-8901",
+    "email": "luis.gomez@example.com",
+    "office": "Oficina 102",
+    "committee": "Comité de Proyectos",
+    "photo": "/ruta/a/foto-luis.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Sofía Castro",
+    "position": "Especialista en Marketing",
+    "phone": "345-678-9012",
+    "email": "sofia.castro@example.com",
+    "office": "Oficina 201",
+    "committee": "Comité de Marketing",
+    "photo": "/ruta/a/foto-sofia.jpg"
+  }
+]

@@ -1,0 +1,136 @@
+/* Estilos para el título del formulario */
+.contact-form-title {
+  font-size: 1.25rem; /* Reducido de 1.5rem */
+  font-weight: bold;
+  color: #000000; /* text-gray-800 */
+  margin-bottom: -15px; /* Reducido el margen negativo */
+}
+
+@media (min-width: 768px) { /* md */
+  .contact-form-title {
+    font-size: 1.5rem; /* Reducido de 1.875rem */
+  }
+}
+
+/* Estilos para la descripción del formulario */
+.contact-form-description {
+  font-size: 0.8rem; /* Reducido de 0.875rem */
+  color: #000000; /* text-gray-600 */
+  margin-bottom: 0.5rem; /* Aumentado ligeramente */
+  font-weight: bold;
+}
+
+@media (min-width: 768px) { /* md */
+  .contact-form-description {
+    font-size: 0.9rem; /* Reducido de 1rem */
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Estilos para el contenedor del formulario */
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Reducido de 1rem */
+}
+
+@media (min-width: 768px) { /* md */
+  .contact-form-container {
+    gap: 1rem; /* Reducido de 1.5rem */
+  }
+}
+
+/* Estilos para la cuadrícula de campos de formulario */
+.form-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* grid-cols-1 */
+  gap: 0.75rem; /* Reducido de 1.5rem */
+}
+
+@media (min-width: 768px) { /* md */
+  .form-fields-grid {
+    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+    gap: 1rem; /* Reducido */
+  }
+}
+
+/* Estilos para el contenedor del botón de envío */
+.submit-button-wrapper {
+  display: flex;
+  justify-content: flex-end; /* justify-end */
+  margin-top: 0.5rem; /* Añadido margen superior pequeño */
+}
+
+/* ContactForm.css */
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid #c3e6cb;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.error-message h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.error-message ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.error-message li {
+  margin-bottom: 0.25rem;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.submit-button-wrapper button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.submit-button-wrapper button:disabled::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.honey-pot {
+  opacity: 0;
+  position: absolute;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}

@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Estilos generales para el componente */
+.page4 {
+    overflow-x: hidden; /* Evita desbordamiento horizontal */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    background-color: white; /* CAMBIADO: Fondo blanco para todo el componente */
+    flex-grow: 1; /* Permite que crezca para llenar el espacio disponible */
+}
+
+/* Sección "RUMBO A BRASIL" */
+.rumbo-a-brasil {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 10%;
+    margin-bottom: 0; /* Eliminado margen negativo */
+    width: 100%;
+    box-sizing: border-box;
+    gap: 5%;
+    background-color: white; /* CAMBIADO: Fondo blanco en lugar de negro */
+}
+
+.rumbo-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.rumbo-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    font-family: "Barlow Condensed", sans-serif;
+    line-height: 1;
+    color: black; /* CAMBIADO: Texto negro */
+}
+
+.rumbo-subtitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-family: "Barlow Condensed", sans-serif;
+    line-height: 1.1;
+    color: black; /* CAMBIADO: Texto negro */
+}
+
+.rumbo-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    text-align: justify;
+    color: black; /* CAMBIADO: Texto negro */
+}
+
+.rumbo-image-container {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rumbo-image {
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Media query para la sección "RUMBO A BRASIL" en pantallas pequeñas */
+@media (max-width: 900px) {
+    .rumbo-a-brasil {
+        flex-direction: column;
+        text-align: center;
+        padding: 3vh 5%;
+        gap: 20px;
+    }
+
+    .rumbo-content {
+        max-width: 100%;
+    }
+
+    .rumbo-title {
+        font-size: 2.5rem;
+    }
+
+    .rumbo-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .rumbo-text {
+        font-size: 0.9rem;
+    }
+
+    .rumbo-image {
+        max-width: 200px;
+    }
+}
+
+/* Estilos del indicador de scroll "Equipo GIA" */
+.scroll-indicator {
+    color: black; /* CAMBIADO: Color negro para el texto */
+    text-align: center;
+    background-color: white; /* CAMBIADO: Fondo blanco */
+    padding: 2rem 0; /* Añadir padding */
+}
+
+.scroll-arrow {
+    font-size: 12rem;
+    line-height: 1;
+    display: inline-block;
+    color: black; /* CAMBIADO: Color negro para la flecha */
+    font-weight: bold;
+}
+
+.scroll-indicator p {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: black; /* CAMBIADO: Color negro para el texto */
+}
+
+/* Estilos de la sección de Representantes */
+.team {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5em;
+    overflow: hidden; 
+    background-color: white; /* CAMBIADO: Fondo blanco */
+    padding: 4rem 0; /* Añadir padding vertical */
+    min-height: 60vh; /* Altura mínima para la sección del equipo */
+}
+
+/* Contenedor de imágenes de perfil */
+.profile-images {
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos individuales de cada imagen */
+.img {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 5px;
+    cursor: pointer;
+    will-change: width, height;
+}
+
+.img img {
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contenedor de nombres de perfil */
+.profile-names {
+    position: relative; 
+    width: 100%;
+    height: 20rem; 
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* Asegura el recorte de los textos */
+    overflow: hidden; /* Necesario junto con clip-path si las letras van a salir del contenedor */
+}
+
+/* Estilos de cada contenedor de nombre/cargo individual */
+.name {
+    position: absolute; /* Permite superponer los nombres */
+    width: 100%;
+    /* NO usar flexbox aquí para evitar que se "empujen" */
+    top: 50%; /* Centra el bloque .name verticalmente dentro de .profile-names */
+    transform: translateY(-50%); /* Ajuste para centrado perfecto */
+    /* Este .name actúa como un "slot" para el nombre y el cargo */
+}
+
+/* Estilos para h1 (nombre) y h2 (cargo) */
+.name h1,
+.name h2 {
+    width: 100%;
+    text-align: center; /* Centra el texto */
+    text-transform: uppercase;
+    font-family: "Barlow Condensed", sans-serif;
+    line-height: 1; /* Para un control más preciso del espacio vertical */
+    user-select: none;
+    overflow: hidden; /* Oculta las letras que están fuera del contenedor */
+    display: block; /* Cada uno ocupa su propia línea */
+    position: relative; /* Para que el translateY del char funcione correctamente */
+    will-change: transform; /* Para optimización de animación */
+}
+
+/* Estilo para h1 (nombre) */
+.name h1 {
+    font-size: 8rem; 
+    font-weight: 900;
+    letter-spacing: -0.05rem;
+    color: #0f55be; /* MANTENER: Color azul para el efecto GSAP */
+    /* Ajuste de posición vertical para el nombre */
+    /* Esto lo moverá hacia arriba dejando espacio debajo para el cargo */
+    margin-bottom: 0.1em; /* REDUCIDO ESPACIO: Un poco de espacio para el cargo */
+    transform: translateY(-0.1em); /* Mueve el nombre ligeramente hacia arriba para dejar espacio al cargo */
+}
+
+/* Estilo específico para el nombre por defecto ("Representantes") */
+.name.default h1 {
+    color: black; /* CAMBIADO: Color negro para el texto por defecto */
+    transform: translateY(0); /* El default no necesita desplazarse si no tiene cargo */
+    margin-bottom: 0; /* No necesita margen inferior */
+}
+
+/* Estilo para cada letra individual (añadida por SplitType.js) */
+.name h1 .char,
+.name h2 .char { 
+    display: inline-block;
+    will-change: transform;
+}
+
+/* Estilos para el cargo (h2) */
+.name h2 {
+    font-size: 3rem; 
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    color: black; /* CAMBIADO: Color negro para el cargo */
+    margin-top: 0; /* No se necesita margen superior si h1 tiene margin-bottom */
+    /* Puedes usar transform: translateY aquí si quieres posicionar el cargo con más precisión */
+    /* Por ejemplo, para que el cargo quede justo debajo del nombre, o un poco más abajo */
+    transform: translateY(0.1em); /* Mueve el cargo ligeramente hacia abajo si el nombre está más arriba */
+}
+
+/* Media Queries para la sección de Representantes en pantallas pequeñas */
+@media(max-width: 900px) {
+    .team {
+        flex-direction: column-reverse;
+        padding: 2rem 0; /* REDUCIDO: Menos padding en móvil */
+        min-height: 50vh; /* REDUCIDO: Menos altura mínima en móvil */
+    }
+
+    .profile-images {
+        flex-wrap: wrap;
+        max-width: 90%;
+        justify-content: center;
+    }
+
+    .img {
+        width: 120px;
+        height: 120px;
+        padding: 2.5px;
+    }
+
+    .name h1 {
+        font-size: 3rem; 
+        letter-spacing: 0;
+        margin-bottom: 0.1em; 
+        transform: translateY(-0.1em); /* Ajuste en móvil también */
+    }
+    
+    .name h2 {
+        font-size: 1.5rem; 
+        margin-top: 0; 
+        transform: translateY(0.1em); /* Ajuste en móvil también */
+    }
+
+    .profile-names {
+        height: 5rem; /* Asegura suficiente espacio en móvil */
+    }
+
+    .scroll-indicator {
+        padding: 1rem 0; /* REDUCIDO: Menos padding en móvil */
+    }
+}

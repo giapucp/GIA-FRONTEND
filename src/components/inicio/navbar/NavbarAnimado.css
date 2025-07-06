@@ -1,0 +1,240 @@
+/* Fuente personalizada */
+@layer base {
+  .font-custom {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .drop-shadow-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 255, 255, 0.4);
+  }
+}
+
+/* Estilos para el elemento <header> del Navbar */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 1000;
+  color: white;
+}
+
+/* Estilos para el título "GIA" en el medio del navbar */
+.middle-logo h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+/* Estilos para la lista de enlaces de navegación (ul) */
+ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+}
+
+/* Estilos para cada elemento de la lista (li) */
+li {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Efecto hover para los elementos de la lista */
+li:hover {
+  opacity: 0.7;
+}
+
+/* Contenedor de los enlaces de navegación */
+.nav-links {
+  position: relative;
+}
+
+/* Estilos para cada elemento de navegación individual */
+.nav-item {
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+/* Estilos generales del enlace (a) */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  letter-spacing: 0.025em;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+}
+
+/* El texto real del enlace */
+.nav-text {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* El indicador de línea inferior que aparece al hacer hover */
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+  opacity: 0;
+  transform-origin: left center;
+}
+
+/* Efecto hover para el indicador */
+.nav-link:hover .nav-indicator {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Efecto hover para el texto del enlace */
+.nav-link:hover .nav-text {
+  transform: translateY(-2px);
+  color: #4facfe;
+}
+
+/* Pseudo-elemento ::before para el efecto de fondo sutil al hacer hover */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -12px;
+  right: -12px;
+  bottom: -8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para el pseudo-elemento ::before */
+.nav-link:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Estilos para .page1 */
+.page1 {
+  height: 80vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #000000 30%, #00548c, #7FC0BA, #FFFFFF);
+  color: white;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 340px;
+}
+
+/* Estrellas animadas como pseudo-elemento en .page1 */
+.page1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(white 1.5px, transparent 2px),
+    radial-gradient(white 1px, transparent 2px);
+  background-size: 60px 60px, 100px 100px;
+  background-position: 0 0, 30px 30px;
+  opacity: 0.08;
+  animation: starMove 90s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Contenido de texto dentro de .page1 */
+.page1 h2 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  z-index: 1;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+  letter-spacing: -0.02em;
+}
+
+.page1 p {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-width: 600px;
+  z-index: 1;
+  text-shadow: 0 0 8px rgba(0,0,0,0.8);
+}
+
+/* Keyframes para la animación de las estrellas */
+@keyframes starMove {
+  from { background-position: 0 0, 30px 30px; }
+  to { background-position: 0 -200px, 30px -230px; }
+}
+
+/* Clases de sombra de texto auxiliares */
+.shadow-text {
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+.shadow-paragraph {
+  text-shadow: 0 0 8px rgba(0,0,0,0.8);
+}
+
+/* Animación y efecto Glass Morphism para el navbar */
+.navbar-header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Pseudo-elemento ::before para el efecto de glass morphism */
+.navbar-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .page1 h2 {
+    font-size: 2rem;
+  }
+  
+  .page1 p {
+    font-size: 1rem;
+  }
+}
