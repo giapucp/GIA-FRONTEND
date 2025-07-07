@@ -92,13 +92,10 @@ export async function fetchNoticiasRecientes(limit = 4) {
       `${API_URL}/noticias?populate=*&sort=fechaPublicacion:desc&pagination[limit]=${limit}`
     );
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
     const { data } = await response.json();
 
-    // Transformación directa para la estructura mostrada en los logs
     return data.map(noticia => ({
       id: noticia.id,
       titulo: noticia.titulo || 'Sin título',
@@ -106,7 +103,7 @@ export async function fetchNoticiasRecientes(limit = 4) {
       textoFinal: noticia.textoFinal || '',
       fechaPublicacion: noticia.fechaPublicacion || new Date().toISOString(),
       portada: noticia.portada?.url 
-        ? `${BASE_URL}${noticia.portada.url}`
+        ? noticia.portada.url // Usa la URL directamente SIN agregar BASE_URL
         : '/placeholder-noticia.jpg',
       categorias: noticia.categoria?.map(cat => ({
         id: cat.id,
