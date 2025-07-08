@@ -97,7 +97,7 @@ function Navbar() {
             className="text-2xl font-bold m-0"
             style={{ transform: 'scale(6) translateY(300px)' }}
           >
-            GIA
+            G I A
           </h1>
         </div>
         <nav className="nav-links">
@@ -132,8 +132,8 @@ function Navbar() {
       </header>
 
       <div className="page1">
-        <h2>GRUPO DE INGENIERÍA</h2>
-        <h2>AEROESPACIAL</h2>
+        <h2>Grupo de Ingeniería</h2>
+        <h2>Aeroespacial</h2>
       </div>
     </div>
   );
