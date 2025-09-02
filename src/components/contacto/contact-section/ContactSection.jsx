@@ -1,6 +1,6 @@
-import './ContactSection.css';
-import ContactForm from './contact-form/ContactForm';
-import ContactInfo from './contact-info/ContactInfo';
+import "./ContactSection.css";
+import ContactForm from "./contact-form/ContactForm";
+import ContactInfo from "./contact-info/ContactInfo";
 
 const ContactSection = () => {
   return (

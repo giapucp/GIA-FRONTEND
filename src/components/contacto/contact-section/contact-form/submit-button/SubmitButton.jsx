@@ -1,4 +1,4 @@
-import './SubmitButton.css';
+import "./SubmitButton.css";
 
 const SubmitButton = ({ text }) => {
   return (

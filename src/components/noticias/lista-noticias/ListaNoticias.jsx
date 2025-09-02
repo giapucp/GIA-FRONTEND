@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { Newspaper } from 'lucide-react';
-import ModalNoticia from '../modal-noticia/ModalNoticia';
-import { chunkArray } from '../../../utils/arrayUtils';
+import { useState, useEffect } from "react";
+import { Newspaper } from "lucide-react";
+import ModalNoticia from "../modal-noticia/ModalNoticia";
+import { chunkArray } from "../../../utils/arrayUtils";
 
-import NewsContentDisplay from './NewsContentDisplay';
+import NewsContentDisplay from "./NewsContentDisplay";
 
-import { fetchNoticias } from '../../../api/strapi';
-import './ListaNoticias.css';
+import { fetchNoticias } from "../../../api/strapi";
+import "./ListaNoticias.css";
 
 const ListaNoticias = () => {
   const [modalAbierto, setModalAbierto] = useState(false);
@@ -21,7 +21,7 @@ const ListaNoticias = () => {
       try {
         setLoading(true);
         setError(null);
-        
+
         const noticias = await fetchNoticias();
 
         // Verificar si hay datos
@@ -32,12 +32,13 @@ const ListaNoticias = () => {
         // Agrupar por año
         const groupedByYear = noticias.reduce((acc, noticia) => {
           try {
-            const fecha = noticia.fechaPublicacion || noticia.attributes?.fechaPublicacion;
+            const fecha =
+              noticia.fechaPublicacion || noticia.attributes?.fechaPublicacion;
             if (!fecha) {
               console.warn("Noticia sin fecha:", noticia.id);
               return acc;
             }
-            
+
             const year = new Date(fecha).getFullYear().toString();
 
             if (!acc[year]) acc[year] = [];
@@ -52,9 +53,9 @@ const ListaNoticias = () => {
         // Ordenar años y crear chunks
         const sortedYears = Object.keys(groupedByYear)
           .sort((a, b) => b - a)
-          .map(year => ({
+          .map((year) => ({
             year,
-            rows: chunkArray(groupedByYear[year], 2)
+            rows: chunkArray(groupedByYear[year], 2),
           }));
 
         setYearsWithRows(sortedYears);
@@ -72,21 +73,21 @@ const ListaNoticias = () => {
   const abrirModal = (noticia) => {
     // Construir URL completa de la imagen si es necesario
     let portadaUrl = noticia.portada;
-    if (portadaUrl && !portadaUrl.startsWith('http')) {
-      portadaUrl = `${import.meta.env.VITE_STRAPI_URL?.replace('/api', '') || 'http://localhost:1337'}${portadaUrl}`;
+    if (portadaUrl && !portadaUrl.startsWith("http")) {
+      portadaUrl = `${import.meta.env.VITE_STRAPI_URL?.replace("/api", "") || "http://localhost:1337"}${portadaUrl}`;
     }
 
     setNoticiaSeleccionada({
       ...noticia,
-      portada: portadaUrl || '/placeholder-noticia.jpg'
+      portada: portadaUrl || "/placeholder-noticia.jpg",
     });
     setModalAbierto(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const cerrarModal = () => {
     setModalAbierto(false);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   if (loading) {
@@ -143,15 +144,12 @@ const ListaNoticias = () => {
           <Newspaper size={40} className="text-gray-800" />
           <h1 className="text-6xl font-bold text-gray-800">Noticias</h1>
         </div>
-        <NewsContentDisplay 
-            yearsWithRows={yearsWithRows} 
-            abrirModal={abrirModal} 
-            />
+        <NewsContentDisplay
+          yearsWithRows={yearsWithRows}
+          abrirModal={abrirModal}
+        />
         {modalAbierto && noticiaSeleccionada && (
-          <ModalNoticia
-            noticia={noticiaSeleccionada}
-            onClose={cerrarModal}
-          />
+          <ModalNoticia noticia={noticiaSeleccionada} onClose={cerrarModal} />
         )}
       </div>
     </div>

@@ -1,10 +1,9 @@
-import './ContactHeader.css';
+import "./ContactHeader.css";
 
 const ContactHeader = () => {
   return (
     <div className="">
       <div className="container-content">
-        {/* NUEVO DIV PARA LA ANIMACIÓN CONJUNTA */}
         <div className="animated-header-content">
           <h1 className="text-4xl md:text-5xl font-bold text-black leading-tight mb-6">
             Contáctanos

@@ -1,7 +1,7 @@
-import Navbar from '../comun/navbar/Navbar';
-import ListaNoticias from './lista-noticias/ListaNoticias';
-import Footer from '../comun/footer/Footer';
-import './PaginaNoticias.css';
+import Navbar from "../comun/navbar/Navbar";
+import ListaNoticias from "./lista-noticias/ListaNoticias";
+import Footer from "../comun/footer/Footer";
+import "./PaginaNoticias.css";
 
 function PaginaNoticias() {
   return (
@@ -9,7 +9,7 @@ function PaginaNoticias() {
       <Navbar />
 
       <ListaNoticias />
-      
+
       <Footer />
     </div>
   );

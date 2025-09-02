@@ -1,10 +1,10 @@
-import NavbarAnimado from './navbar/NavbarAnimado';
-import SeccionActualidad from './actualidad/SeccionActualidad';
-import MisionVision from './mision-vision/MisionVision';
-import RumboBrasil from './rumbo-brasil/RumboBrasil';
-import HistoriaInicio from './historia-inicio/HistoriaInicio';
-import Footer from '../comun/footer/Footer';
-import './PaginaInicio.css';
+import NavbarAnimado from "./navbar/NavbarAnimado";
+import SeccionActualidad from "./actualidad/SeccionActualidad";
+import MisionVision from "./mision-vision/MisionVision";
+import RumboBrasil from "./rumbo-brasil/RumboBrasil";
+import HistoriaInicio from "./historia-inicio/HistoriaInicio";
+import Footer from "../comun/footer/Footer";
+import "./PaginaInicio.css";
 
 function PaginaInicio() {
   return (

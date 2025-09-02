@@ -1,4 +1,4 @@
-import './FormField.css';
+import "./FormField.css";
 
 const FormField = ({ label, type, id, name, placeholder, rows, required }) => {
   return (
@@ -6,7 +6,7 @@ const FormField = ({ label, type, id, name, placeholder, rows, required }) => {
       <label htmlFor={id} className="form-field-label">
         {label} {required && <span className="required-asterisk">*</span>}
       </label>
-      {type === 'textarea' ? (
+      {type === "textarea" ? (
         <textarea
           id={id}
           name={name}

@@ -47,7 +47,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   z-index: 10;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .modal-close-btn:hover {
@@ -72,7 +72,7 @@
   left: 0;
   right: 0;
   height: 70%;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
 }
 
 .modal-title {
@@ -142,15 +142,15 @@
     font-size: 1.75rem;
     padding: 1.5rem;
   }
-  
+
   .modal-header {
     height: 300px;
   }
-  
+
   .modal-content {
     padding: 1.5rem;
   }
-  
+
   .modal-meta {
     gap: 1rem;
     margin-bottom: 1.5rem;

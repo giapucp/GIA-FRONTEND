@@ -1,12 +1,12 @@
-import { useEffect, useState, useRef } from 'react';
-import Navbar from '../comun/navbar/Navbar';
-import Footer from '../comun/footer/Footer.jsx';
-import MiembroCard from './MiembroCard';
-import { fetchMiembros } from '../../api/strapi.js'; 
-import './PaginaDirectorio.css';
+import { useEffect, useState, useRef } from "react";
+import Navbar from "../comun/navbar/Navbar";
+import Footer from "../comun/footer/Footer.jsx";
+import MiembroCard from "./MiembroCard";
+import { fetchMiembros } from "../../api/strapi.js";
+import "./PaginaDirectorio.css";
 
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,38 +26,42 @@ function PaginaDirectorio() {
   useEffect(() => {
     if (!pageContainerRef.current || miembros.length === 0) return;
 
-    const sections = gsap.utils.toArray('.directorio-seccion', pageContainerRef.current);
+    const sections = gsap.utils.toArray(
+      ".directorio-seccion",
+      pageContainerRef.current,
+    );
     const sectionTriggers = []; // Almacenar triggers para limpiarlos
 
     sections.forEach((section) => {
-      const tl = gsap.fromTo(section,
+      const tl = gsap.fromTo(
+        section,
         { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: section,
-            start: 'top 85%', // Ajustar para que se active un poco después
-            end: 'bottom 15%',
-            toggleActions: 'play none none reverse',
+            start: "top 85%", // Ajustar para que se active un poco después
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
             // markers: true, // Descomentar para depuración
-          }
-        }
+          },
+        },
       );
       sectionTriggers.push(tl.scrollTrigger); // Guardar el scrollTrigger de la línea de tiempo
     });
 
     return () => {
       // Limpiar todos los ScrollTriggers creados para estas secciones
-      sectionTriggers.forEach(trigger => trigger.kill());
+      sectionTriggers.forEach((trigger) => trigger.kill());
     };
   }, [miembros]);
 
-  const presidente = miembros.find(m => m.area.nombre === 'presidente');
+  const presidente = miembros.find((m) => m.area.nombre === "presidente");
   const areas = miembros
-    .filter(m => m.area.nombre !== 'presidente') // Por el momento es la unica area diferente
+    .filter((m) => m.area.nombre !== "presidente") // Por el momento es la unica area diferente
     .reduce((acc, miembro) => {
       if (!acc[miembro.area.nombre]) {
         acc[miembro.area.nombre] = [];
@@ -90,7 +94,7 @@ function PaginaDirectorio() {
           <section key={nombreArea} className="directorio-seccion">
             <h3>{nombreArea}</h3>
             <div className="miembros-grid">
-              {miembrosDelArea.map(miembro => (
+              {miembrosDelArea.map((miembro) => (
                 <MiembroCard
                   key={miembro.id}
                   nombre={miembro.nombre}

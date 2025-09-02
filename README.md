@@ -11,3 +11,4 @@ git clone https://github.com/JosephAparicio/blog-GIA.git
 cd tu-carpeta
 npm install
 npm run dev
+```

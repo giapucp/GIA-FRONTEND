@@ -21,7 +21,7 @@
 }
 
 .directorio-titulo::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -63,7 +63,6 @@
   min-height: 430px;
 }
 
-
 @media (max-width: 992px) {
   .directorio-titulo {
     font-size: 2.4em;
@@ -103,4 +102,3 @@
     margin-right: auto;
   }
 }
-

@@ -122,7 +122,10 @@
   font-weight: 600;
   font-family: var(--font-primary);
   opacity: 1;
-  transition: opacity 0.3s ease, font-size 0.3s ease, left 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    font-size 0.3s ease,
+    left 0.3s ease;
   white-space: nowrap;
 }
 
@@ -148,11 +151,11 @@
     padding-right: 20px;
     padding-left: 10px;
   }
-  
+
   .year-marker {
     height: 60px;
   }
-  
+
   .year-number-active {
     font-size: 0.9rem;
     left: 10px;

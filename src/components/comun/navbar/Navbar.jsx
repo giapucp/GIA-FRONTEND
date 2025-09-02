@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import './Navbar.css';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import "./Navbar.css";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ function Navbar() {
         </div>
 
         {/* Botón hamburguesa para móvil */}
-        <button 
+        <button
           className="burger-menu md:hidden z-20 relative"
           onClick={toggleMenu}
           aria-label="Toggle menu"
@@ -68,7 +68,7 @@ function Navbar() {
         </nav>
 
         {/* Menú móvil */}
-        <div className={`mobile-menu ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
+        <div className={`mobile-menu ${isMenuOpen ? "mobile-menu-open" : ""}`}>
           <nav className="mobile-nav">
             <ul className="mobile-nav-list">
               <li className="mobile-nav-item">
@@ -77,17 +77,29 @@ function Navbar() {
                 </Link>
               </li>
               <li className="mobile-nav-item">
-                <Link to="/noticias" className="mobile-nav-link" onClick={closeMenu}>
+                <Link
+                  to="/noticias"
+                  className="mobile-nav-link"
+                  onClick={closeMenu}
+                >
                   <span className="mobile-nav-text">Noticias</span>
                 </Link>
               </li>
               <li className="mobile-nav-item">
-                <Link to="/directorio" className="mobile-nav-link" onClick={closeMenu}>
+                <Link
+                  to="/directorio"
+                  className="mobile-nav-link"
+                  onClick={closeMenu}
+                >
                   <span className="mobile-nav-text">Directorio</span>
                 </Link>
               </li>
               <li className="mobile-nav-item">
-                <Link to="/contacto" className="mobile-nav-link" onClick={closeMenu}>
+                <Link
+                  to="/contacto"
+                  className="mobile-nav-link"
+                  onClick={closeMenu}
+                >
                   <span className="mobile-nav-text">Contáctanos</span>
                 </Link>
               </li>
@@ -96,12 +108,7 @@ function Navbar() {
         </div>
 
         {/* Overlay para cerrar el menú */}
-        {isMenuOpen && (
-          <div 
-            className="mobile-overlay"
-            onClick={closeMenu}
-          />
-        )}
+        {isMenuOpen && <div className="mobile-overlay" onClick={closeMenu} />}
       </header>
     </>
   );

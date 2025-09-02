@@ -3,7 +3,7 @@
   --transition-timing: cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-.titleRecent{
+.titleRecent {
   position: absolute;
   top: 50px;
   left: 10vw;
@@ -33,13 +33,14 @@
   height: 280px;
   border-radius: 20px;
   overflow: hidden;
-  transition: transform var(--transition-time) var(--transition-timing),
-              width var(--transition-time) var(--transition-timing),
-              height var(--transition-time) var(--transition-timing),
-              opacity var(--transition-time) var(--transition-timing),
-              left var(--transition-time) var(--transition-timing),
-              top var(--transition-time) var(--transition-timing),
-              bottom var(--transition-time) var(--transition-timing);
+  transition:
+    transform var(--transition-time) var(--transition-timing),
+    width var(--transition-time) var(--transition-timing),
+    height var(--transition-time) var(--transition-timing),
+    opacity var(--transition-time) var(--transition-timing),
+    left var(--transition-time) var(--transition-timing),
+    top var(--transition-time) var(--transition-timing),
+    bottom var(--transition-time) var(--transition-timing);
   will-change: transform, width, height, opacity, left, top, bottom;
   background-position: center;
   background-size: cover;
@@ -48,13 +49,13 @@
      o las de previsualización activas deben estar ocultos.
      Esto asegura que solo las que tienen un data-position/data-preview-position
      activo sean visibles. */
-  opacity: 0; 
+  opacity: 0;
   visibility: hidden;
   transform: translateZ(0);
 }
 
 .carousel .list .item::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -77,7 +78,6 @@
   visibility: visible; /* Asegura que la tarjeta principal siempre sea visible */
   z-index: 1;
   transform: translateZ(0) scale(1);
-
 }
 
 /* Tarjetas de previsualización */
@@ -137,7 +137,6 @@
   margin-bottom: 10px;
 }
 
-
 .content .title {
   position: relative;
   text-transform: uppercase;
@@ -147,24 +146,26 @@
   font-weight: bold;
   color: white;
   margin-bottom: 30px; /* Margen inferior predeterminado para el título (preview cards) */
-  transition: font-size 0.6s var(--transition-timing),
-              transform 0.6s var(--transition-timing);
+  transition:
+    font-size 0.6s var(--transition-timing),
+    transform 0.6s var(--transition-timing);
 }
 
 .content .title::before {
-  content: '';
+  content: "";
   width: 20px;
   height: 1px;
   background: white;
   position: absolute;
   top: -10px;
   left: 0;
-  transition: width 0.6s var(--transition-timing),
-              height 0.6s var(--transition-timing),
-              top 0.6s var(--transition-timing);
+  transition:
+    width 0.6s var(--transition-timing),
+    height 0.6s var(--transition-timing),
+    top 0.6s var(--transition-timing);
 }
 
-.content .categorias{
+.content .categorias {
   color: white;
   font-size: 12px;
   font-weight: bold;
@@ -188,7 +189,6 @@
   top: -20px;
 }
 
-
 .content .des {
   display: none;
   opacity: 0;
@@ -197,8 +197,9 @@
   color: white;
   width: 50%;
   transform: translateY(20px);
-  transition: opacity 0.8s var(--transition-timing) 0.2s,
-              transform 0.8s var(--transition-timing) 0.2s;
+  transition:
+    opacity 0.8s var(--transition-timing) 0.2s,
+    transform 0.8s var(--transition-timing) 0.2s;
 }
 
 /* Estilos para la descripción de la tarjeta principal */
@@ -266,12 +267,18 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
-  .item[data-position="0"] .content .title{
+  .item[data-position="0"] .content .title {
     font-size: 35px; /* Reduce el tamaño del título principal en pantallas pequeñas */
     width: 60vw; /* Ajusta el ancho del título principal */
   }

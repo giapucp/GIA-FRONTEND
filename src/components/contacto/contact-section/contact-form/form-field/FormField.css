@@ -23,7 +23,10 @@
   font-size: 1rem;
   font-family: var(--font-primary);
   color: #111827;
-  transition: border 0.3s, box-shadow 0.3s, background-color 0.3s;
+  transition:
+    border 0.3s,
+    box-shadow 0.3s,
+    background-color 0.3s;
   outline: none;
 }
 
@@ -66,4 +69,3 @@
   border-top: 1px solid #dee2e6;
   padding-top: 1rem;
 }
-
