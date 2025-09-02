@@ -7,7 +7,7 @@ Página web del Grupo de Ingeniería Aeroespacial (GIA), desarrollada con **Reac
 1. Clona este repositorio e instala las dependencias:
 
 ```bash
-git clone https://github.com/JosephAparicio/blog-GIA.git
+git clone https://github.com/giapucp/GIA-FRONTEND.git
 cd tu-carpeta
 npm install
 npm run dev
