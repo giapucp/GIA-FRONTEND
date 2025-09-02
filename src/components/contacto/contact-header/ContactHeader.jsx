@@ -1,6 +1,4 @@
-// src/components/contacto/contact-header/ContactHeader.jsx
-import React from 'react';
-import './ContactHeader.css'; // Importa el archivo CSS asociado
+import './ContactHeader.css';
 
 const ContactHeader = () => {
   return (

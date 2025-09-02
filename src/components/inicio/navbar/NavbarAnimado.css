@@ -35,6 +35,13 @@ header {
   letter-spacing: -0.03em;
 }
 
+/* Ajuste específico para móviles después de la animación */
+@media (max-width: 768px) {
+  .middle-logo h1 {
+    margin-left: 0;
+  }
+}
+
 /* Estilos para la lista de enlaces de navegación (ul) */
 ul {
   list-style: none;
@@ -134,6 +141,134 @@ li:hover {
   transform: scale(1);
 }
 
+/* ESTILOS PARA EL MENÚ HAMBURGUESA */
+
+/* Botón hamburguesa */
+/* Botón hamburguesa */
+.burger-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 50;
+}
+
+.burger-menu:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Botón X fijo cuando el menú está abierto */
+.burger-menu-x {
+  position: fixed !important;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  background: rgba(0,0,0,0.7);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Menú móvil */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 84, 140, 0.9));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu-open {
+  right: 0;
+}
+
+/* Navegación móvil */
+.mobile-nav {
+  padding-top: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobile-nav-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-item:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 20px 0;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: var(--font-primary);
+  letter-spacing: 0.025em;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-nav-text {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.mobile-nav-link:hover .mobile-nav-text {
+  transform: translateX(10px);
+  color: #4facfe;
+}
+
+.mobile-nav-link::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.mobile-nav-link:hover::before {
+  left: 100%;
+}
+
+/* Overlay para cerrar el menú */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
 /* Estilos para .page1 */
 .page1 {
   height: 80vh;
@@ -230,6 +365,10 @@ li:hover {
 
 /* Media queries para responsividad */
 @media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+  }
+
   .page1 h2 {
     font-size: 2rem;
   }
@@ -237,10 +376,50 @@ li:hover {
   .page1 p {
     font-size: 1rem;
   }
+
+  /* Ocultar navegación desktop en móvil */
+  .nav-links {
+    display: none;
+  }
+
+  /* Animaciones para el menú móvil */
+  .mobile-nav-item {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInFromRight 0.3s ease forwards;
+  }
+
+  .mobile-menu-open .mobile-nav-item:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .mobile-menu-open .mobile-nav-item:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .mobile-menu-open .mobile-nav-item:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .mobile-menu-open .mobile-nav-item:nth-child(4) {
+    animation-delay: 0.4s;
+  }
 }
 
-@media (max-height: 768px) {
-  .page1 h2{
-    visibility: hidden;
+@keyframes slideInFromRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Estilos adicionales para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-links ul {
+    gap: 12px;
+  }
+  
+  .nav-item {
+    padding: 0.5rem 0.8rem;
   }
 }

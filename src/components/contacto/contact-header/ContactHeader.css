@@ -1,57 +1,87 @@
-/* src/components/contacto/contact-header/ContactHeader.css */
-
-/* Definición de la animación de aparecer desde abajo */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px); /* Empieza 20px más abajo */
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0); /* Termina en su posición original */
+    transform: translateY(0);
   }
 }
 
 .container-content {
-  margin: 1rem 0rem 0rem 15rem; /* top | right | bottom | left */
+  margin: 1rem 0 0 15rem;
   max-width: calc(100% - 15rem);
   padding-right: 1rem;
   box-sizing: border-box;
   margin-bottom: 0 !important;
 }
 
-/* Aplicar la animación al NUEVO CONTENEDOR */
 .animated-header-content {
-  animation: fadeInUp 1s ease-out forwards; /* Duración: 1s, sin retraso */
+  animation: fadeInUp 1s ease-out forwards;
 }
-
-/* Estilos para el H1 (Título "Contáctanos") - SIN ANIMACIÓN AQUÍ */
 .container-content h1 {
-  font-size: 2rem; /* Reducido de 2.25rem */
-  font-weight: 700; /* font-bold */
-  color: black; /* text-black */
-  line-height: 1.25; /* leading-tight */
-  margin-bottom: 0.5rem; /* Reducido el margen inferior */
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
 }
-
-/* Responsive para el H1 */
 @media (min-width: 768px) {
   .container-content h1 {
-    font-size: 2.5rem; /* Reducido de 3rem */
+    font-size: 2.5rem;
+  }
+}
+.container-content p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .container-content p {
+    font-size: 1.125rem;
   }
 }
 
-/* Estilos para el P (Párrafo de descripción) - SIN ANIMACIÓN AQUÍ */
-.container-content p {
-  font-size: 1rem; /* Reducido de 1.125rem */
-  font-weight: 700; /* font-bold */
-  color: black; /* text-black */
-  margin-bottom: 1rem; /* Añadido margen inferior */
+.container-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
 }
 
-/* Responsive para el P */
+.container-content p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 1rem;
+}
+
 @media (min-width: 768px) {
+  .container-content h1 {
+    font-size: 2.5rem;
+  }
   .container-content p {
-    font-size: 1.125rem; /* Reducido de 1.25rem */
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .container-content {
+    margin: 1rem 0.5rem 0 0.5rem;
+    max-width: 100%;
+    padding-right: 0;
+  }
+  .container-content h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    text-align: left;
+  }
+  .container-content p {
+    font-size: 0.95rem;
+    text-align: justify;
+    margin-bottom: 0.7rem;
   }
 }

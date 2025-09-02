@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Menu, X } from 'lucide-react';
 import './NavbarAnimado.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -10,6 +11,15 @@ function Navbar() {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
   const middleLogoRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
     if (!middleLogoRef.current || !headerRef.current || !containerRef.current) return;
@@ -48,7 +58,7 @@ function Navbar() {
         middleLogoRef.current,
         { x: 0 },
         {
-          x: '-42vw',
+          x: window.innerWidth <= 768 ? '-38vw' : '-42vw',
           ease: 'power1.inOut',
           scrollTrigger: {
             trigger: '.page1',
@@ -91,16 +101,32 @@ function Navbar() {
         className="navbar-header fixed top-0 left-0 w-full flex justify-between items-center px-10 py-5 z-50 text-white transition-all duration-300"
       >
         <div className="w-[100px]" />
+        
         <div className="middle-logo absolute left-0 w-full flex justify-center pointer-events-none z-10">
           <h1 
             ref={middleLogoRef} 
             className="text-2xl font-bold m-0"
             style={{ transform: 'scale(6) translateY(300px)' }}
           >
-            G I A
+            GIA
           </h1>
         </div>
-        <nav className="nav-links">
+
+        {/* Menú hamburguesa para móvil */}
+        <button 
+          className="burger-menu md:hidden z-20 relative"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? (
+            <X size={24} className="text-white" />
+          ) : (
+            <Menu size={24} className="text-white" />
+          )}
+        </button>
+
+        {/* Navegación desktop */}
+        <nav className="nav-links hidden md:block">
           <ul className="flex gap-16 text-lg m-0 p-0 list-none">
             <li className="nav-item">
               <Link to="/" className="nav-link">
@@ -114,7 +140,6 @@ function Navbar() {
                 <span className="nav-indicator"></span>
               </Link>
             </li>
-            {/* Nuevo enlace a Directorio */}
             <li className="nav-item">
               <Link to="/directorio" className="nav-link">
                 <span className="nav-text">Directorio</span>
@@ -129,11 +154,47 @@ function Navbar() {
             </li>
           </ul>
         </nav>
+
+        {/* Menú móvil */}
+        <div className={`mobile-menu ${isMenuOpen ? 'mobile-menu-open' : ''}`}>
+          <nav className="mobile-nav">
+            <ul className="mobile-nav-list">
+              <li className="mobile-nav-item">
+                <Link to="/" className="mobile-nav-link" onClick={closeMenu}>
+                  <span className="mobile-nav-text">Inicio</span>
+                </Link>
+              </li>
+              <li className="mobile-nav-item">
+                <Link to="/noticias" className="mobile-nav-link" onClick={closeMenu}>
+                  <span className="mobile-nav-text">Noticias</span>
+                </Link>
+              </li>
+              <li className="mobile-nav-item">
+                <Link to="/directorio" className="mobile-nav-link" onClick={closeMenu}>
+                  <span className="mobile-nav-text">Directorio</span>
+                </Link>
+              </li>
+              <li className="mobile-nav-item">
+                <Link to="/contacto" className="mobile-nav-link" onClick={closeMenu}>
+                  <span className="mobile-nav-text">Contáctanos</span>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        {/* Overlay para cerrar el menú */}
+        {isMenuOpen && (
+          <div 
+            className="mobile-overlay"
+            onClick={closeMenu}
+          />
+        )}
       </header>
 
       <div className="page1">
-        <h2>Grupo de Ingeniería</h2>
-        <h2>Aeroespacial</h2>
+        <h2>GRUPO DE INGENIERÍA</h2>
+        <h2>AEROESPACIAL</h2>
       </div>
     </div>
   );
