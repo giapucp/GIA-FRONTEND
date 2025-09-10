@@ -62,10 +62,10 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "service_n2sli0i",
-        "template_9s7cntp",
+        import.meta.env.EMAILJS_SERVICE_ID,
+        import.meta.env.EMAILJS_TEMPLATE_ID,
         form.current,
-        "BX3wy0liG39SIQCZG",
+        import.meta.env.EMAILJS_PUBLIC_KEY,
       )
       .then(() => {
         setSubmitStatus("success");
